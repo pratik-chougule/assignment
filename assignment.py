@@ -43,4 +43,4 @@ async def submit(file: UploadFile, response_model=bank_account_holder_deatils_mo
         save_file_path = os.path.join(Upload_DIR, new_filename)
         with open(save_file_path, "w") as f:
             xls.dump(xml_data)
-    return  Fi
+    return FileResponse(path=save_file_path, media_type="application/xls", filename=new_filename)
